@@ -3,6 +3,7 @@
 #include "vecx.h"
 #include "osint.h"
 #include "e8910.h"
+#include <assert.h>
 
 #define einline __inline
 
@@ -762,8 +763,27 @@ static einline void via_sstep1 (void)
 	}
 }
 
+static einline long scale_long(float scale, long value)
+{
+	return (long)((float)value * scale);
+}
+
 static einline void alg_addline (long x0, long y0, long x1, long y1, unsigned char color)
 {
+	float scale = 0.1;
+	long x0_scale = scale_long(scale, x0);
+	long y0_scale = scale_long(scale, y0);
+	long x1_scale = scale_long(scale, x1);
+	long y1_scale = scale_long(scale, y1);
+
+	assert(x0_scale < 4000);
+	assert(y0_scale < 4000);
+	assert(x1_scale < 4000);
+	assert(y1_scale < 4000);
+
+	printf("s=%ld,%ld,4095,4095,1,1\n", x0_scale, y0_scale);
+	printf("s=%ld,%ld,4095,4095,1,1\n", x1_scale, y1_scale);
+
 	unsigned long key;
 	long index;
 

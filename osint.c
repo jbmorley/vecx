@@ -207,6 +207,9 @@ int main(int argc, char *argv[]){
 	if(argc > 2)
 		load_overlay(argv[2]);
 
+	printf("r=30000\n");
+	printf("e=1\n");
+
 	init();
 
 	e8910_init_sound();
