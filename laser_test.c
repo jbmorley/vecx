@@ -29,5 +29,4 @@ int main()
     LaserRenderLine(&state, p5, p6);
     LaserRenderLine(&state, p6, p7);
     LaserRenderLine(&state, p7, p4);
-
 }
