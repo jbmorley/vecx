@@ -4,11 +4,13 @@
 #include "SDL_gfxPrimitives.h"
 #include "SDL_rotozoom.h"
 
-#include "osint.h"
 #include "e8910.h"
+#include "laser.h"
+#include "osint.h"
 #include "vecx.h"
 
 #define EMU_TIMER 20 /* the emulators heart beats at 20 milliseconds */
+#define LASER_SCALE 0.1
 
 static SDL_Surface *screen = NULL;
 static SDL_Surface *overlay_original = NULL;
@@ -17,6 +19,14 @@ static SDL_Surface *overlay = NULL;
 static long scl_factor;
 static long offx;
 static long offy;
+
+static LaserState laser_state = LaserStateZero;
+
+void osint_addline(Point p0, Point p1, unsigned char color){
+	LaserRenderLine(&laser_state,
+					PointScale(p0, LASER_SCALE),
+					PointScale(p1, LASER_SCALE));
+}
 
 void osint_render(void){
 	SDL_FillRect(screen, NULL, 0);
@@ -207,9 +217,7 @@ int main(int argc, char *argv[]){
 	if(argc > 2)
 		load_overlay(argv[2]);
 
-	printf("r=30000\n");
-	printf("e=1\n");
-
+	LaserInitialize(&laser_state);
 	init();
 
 	e8910_init_sound();

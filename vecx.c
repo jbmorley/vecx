@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include "e6809.h"
-#include "vecx.h"
-#include "osint.h"
-#include "e8910.h"
 #include <assert.h>
+
+#include "e6809.h"
+#include "e8910.h"
+#include "laser.h"
+#include "osint.h"
+#include "vecx.h"
 
 #define einline __inline
 
@@ -770,19 +772,7 @@ static einline long scale_long(float scale, long value)
 
 static einline void alg_addline (long x0, long y0, long x1, long y1, unsigned char color)
 {
-	float scale = 0.1;
-	long x0_scale = scale_long(scale, x0);
-	long y0_scale = scale_long(scale, y0);
-	long x1_scale = scale_long(scale, x1);
-	long y1_scale = scale_long(scale, y1);
-
-	assert(x0_scale < 4000);
-	assert(y0_scale < 4000);
-	assert(x1_scale < 4000);
-	assert(y1_scale < 4000);
-
-	printf("s=%ld,%ld,4095,4095,1,1\n", x0_scale, y0_scale);
-	printf("s=%ld,%ld,4095,4095,1,1\n", x1_scale, y1_scale);
+	osint_addline(PointMake(x0, y0), PointMake(x1, y1), color);
 
 	unsigned long key;
 	long index;
