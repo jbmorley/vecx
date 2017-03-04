@@ -12,6 +12,11 @@ Point PointMake(double x, double y)
 	return point;
 }
 
+Point PointScale(Point point, double scale)
+{
+	return PointMake(point.x * scale, point.y * scale);
+}
+
 bool DoubleEqualToDouble(double a, double b, double epsilon)
 {
     return fabs(a - b) < epsilon;

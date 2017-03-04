@@ -4,17 +4,19 @@
 
 #include "laser.h"
 
+#define SCALE 100.0
+
 int main()
 {
-    Point p0 = PointMake(10, 10);
-    Point p1 = PointMake(10, 20);
-    Point p2 = PointMake(20, 20);
-    Point p3 = PointMake(20, 10);
+    Point p0 = PointScale(PointMake(10, 10), SCALE);
+    Point p1 = PointScale(PointMake(10, 20), SCALE);
+    Point p2 = PointScale(PointMake(20, 20), SCALE);
+    Point p3 = PointScale(PointMake(20, 10), SCALE);
 
-    Point p4 = PointMake(30, 30);
-    Point p5 = PointMake(30, 40);
-    Point p6 = PointMake(40, 40);
-    Point p7 = PointMake(40, 30);
+    Point p4 = PointScale(PointMake(30, 30), SCALE);
+    Point p5 = PointScale(PointMake(30, 40), SCALE);
+    Point p6 = PointScale(PointMake(40, 40), SCALE);
+    Point p7 = PointScale(PointMake(40, 30), SCALE);
 
     LaserState state = LaserStateZero;
 
