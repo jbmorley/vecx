@@ -83,7 +83,7 @@ void LaserStateSetPosition(LaserState *state, Point position)
     RenderPause(state, state->on ? LASER_CYCLES_TO_STABLE_ON : LASER_MAX_DISTANCE_PER_CYCLE_OFF);
 }
 
-void RenderLine(LaserState *state, Point p0, Point p1)
+void LaserRenderLine(LaserState *state, Point p0, Point p1)
 {
     // Switch the laser off if the line is discontinuous.
     if (!PointEqualToPoint(state->position, p0, 0.1)) {
@@ -96,7 +96,7 @@ void RenderLine(LaserState *state, Point p0, Point p1)
     LaserStateSetPosition(state, p1);
 }
 
-void Initialize(LaserState *state)
+void LaserInitialize(LaserState *state)
 {
     LaserStateSetRate(state, 20000);
     printf("e=1\n");

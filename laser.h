@@ -13,7 +13,7 @@ typedef struct {
 
 static LaserState LaserStateZero;
 
-void Initialize(LaserState *state);
-void RenderLine(LaserState *state, Point p0, Point p1);
+void LaserInitialize(LaserState *state);
+void LaserRenderLine(LaserState *state, Point p0, Point p1);
 
 #endif

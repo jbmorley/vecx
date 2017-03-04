@@ -4,6 +4,14 @@
 
 static Point PointZero = { 0 };
 
+Point PointMake(double x, double y)
+{
+	Point point = { 0 };
+	point.x = x;
+	point.y = y;
+	return point;
+}
+
 bool DoubleEqualToDouble(double a, double b, double epsilon)
 {
     return fabs(a - b) < epsilon;
