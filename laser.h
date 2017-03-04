@@ -1,5 +1,5 @@
-#ifndef LASER_H
-#define LASER_H
+#ifndef __LASER_H
+#define __LASER_H
 
 #include "graphics.h"
 
@@ -16,4 +16,4 @@ static LaserState LaserStateZero;
 void LaserInitialize(LaserState *state);
 void LaserRenderLine(LaserState *state, Point p0, Point p1);
 
-#endif
+#endif // __LASER_H

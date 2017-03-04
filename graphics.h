@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
+#ifndef __GRAPHICS_H
+#define __GRAPHICS_H
 
 #include <stdbool.h>
 
@@ -17,4 +17,4 @@ bool DoubleEqualToDouble(double a, double b, double epsilon);
 bool PointEqualToPoint(Point p0, Point p1, double epsilon);
 float DistanceFromPointToPoint(Point p0, Point p1);
 
-#endif // GRAPHICS_H
+#endif // __GRAPHICS_H
